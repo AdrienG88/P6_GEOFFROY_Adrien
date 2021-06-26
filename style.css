@@ -1,0 +1,38 @@
+body
+{
+	font-family: Verdana;
+	background-color:  #5d2172;
+}
+#menu
+{
+	display: flex;
+	background-color: #391446;
+}
+.menu-choice
+{
+	width:  25%;
+}
+nav ul
+{
+	list-style-type: none;
+
+	font-size: 1.8em;
+}
+nav + ul + li
+{
+	position: absolute;
+	left: 30px;
+	right: 30px;
+}
+p
+{
+	width: 80%;
+}
+ul
+{
+	display: flex;
+}
+.carousel + ul + li
+{
+	list-style-type: none;
+}
