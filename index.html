@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="style.css">
+  <title>Bienvenue sur Just Stream It!</title>
+</head>
+
+<body style="font-family: Helvetica; background-color: #0c3c4d;">
+
+<script src="script.js" defer></script>
+
+    <header>
+    <div class="flex-container">
+      <div id="menu-logo"><img src="stream-it_mini.png" alt="Logo de Stream It"/></div>
+      <div id="menu-nav-accueil" class="menu-nav"><a class="menu-nav-link" href=#flex-container>Accueil</a></div>
+      <div id="menu-nav-cat" class="menu-nav"><a class="menu-nav-link" href=#best-rated-carousel>Catégories</a></div>
+    </div>
+  </header>
+
+    <div class="carousels" style="margin-top: 200px;">
+        <div id="best-rated-carousel" tabindex="0" class="carousel">
+            <h2>Best-rated movies</h2>
+
+            <ul>
+                <li id="best-rated-movie-slide1" class="slide">
+                    <div id="best-rated-movie-slide1-info">
+                        <h3 id="best-rated-movie-slide1-title"></h3>
+                        <img id="best-rated-movie-slide1-img">
+                        <div id="best-rated-movie-slide1-description"></div>
+                        
+                    </div>
+                    <div class="carousel-snapper"></div>
+                        <a href="#best-rated-movie-slide7" class="carousel-previous">Go to last slide</a>
+                        <a href="#best-rated-movie-slide2" class="carousel-next">Go to next slide</a>
+                </li>
+                
+                <li id="best-rated-movie-slide2" class="slide">
+                    <div class="carousel-snapper"></div>
+                        <a href="#best-rated-movie-slide1" class="carousel-previous">Go to previous slide</a>
+                        <a href="#best-rated-movie-slide3" class="carousel-next">Go to next slide</a>
+                </li>
+
+                <li id="best-rated-movie-slide3" class="slide">
+                    <div class="carousel-snapper"></div>
+                        <a href="#best-rated-movie-slide2" class="carousel-previous">Go to previous slide</a>
+                        <a href="#best-rated-movie-slide4" class="carousel-next">Go to next slide</a>
+                </li>
+
+                <li id="best-rated-movie-slide4" class="slide">
+                    <div class="carousel-snapper"></div>
+                        <a href="#best-rated-movie-slide3" class="carousel-previous">Go to previous slide</a>
+                        <a href="#best-rated-movie-slide5" class="carousel-next">Go to next slide</a>
+                </li>
+
+                <li id="best-rated-movie-slide5" class="slide">
+                    <div class="carousel-snapper"></div>
+                        <a href="#best-rated-movie-slide4" class="carousel-previous">Go to previous slide</a>
+                        <a href="#best-rated-movie-slide6" class="carousel-next">Go to next slide</a>
+                </li>
+
+                <li id="best-rated-movie-slide6" class="slide">
+                    <div class="carousel-snapper"></div>
+                        <a href="#best-rated-movie-slide5" class="carousel-previous">Go to previous slide</a>
+                        <a href="#best-rated-movie-slide7" class="carousel-next">Go to next slide</a>
+                </li>
+                <li id="best-rated-movie-slide7" class="slide">
+                    <div class="carousel-snapper"></div>
+                        <a href="#best-rated-movie-slide6" class="carousel-previous">Go to previous slide</a>
+                        <a href="#best-rated-movie-slide1" class="carousel-next">Go to first slide</a>
+                </li>
+
+            </ul>
+ 
+        </div>
+        <div id="best-movie"></div>
+</body>
+
+</html>
