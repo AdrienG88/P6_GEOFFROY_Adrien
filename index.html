@@ -1,26 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <link rel="stylesheet" href="style.css">
-  <title>Bienvenue sur Just Stream It!</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+    <title>Bienvenue sur Just Stream It!</title>
 </head>
 
 <body style="font-family: Helvetica; background-color: #0c3c4d;">
-
 <script src="script.js" defer></script>
 
     <header>
     <div class="flex-container">
-      <div id="menu-logo"><img src="stream-it_mini.png" alt="Logo de Stream It"/></div>
-      <div id="menu-nav-accueil" class="menu-nav"><a class="menu-nav-link" href=#flex-container>Accueil</a></div>
-      <div id="menu-nav-cat" class="menu-nav"><a class="menu-nav-link" href=#best-rated-carousel>Catégories</a></div>
+        <div id="menu-logo"><img src="stream-it_mini.png" alt="Logo de Stream It"/></div>
+        <div id="menu-nav-accueil" class="menu-nav"><a class="menu-nav-link" href=#flex-container>Accueil</a></div>
+        <div id="menu-nav-cat" class="menu-nav"><a class="menu-nav-link" href=#best-rated-carousel>Catégories</a></div>
     </div>
-  </header>
+    </header>
 
+
+    <div class ="top movie">
+        <h2>Best-rated movie</h2>
+        <div id="top-movie-info">
+            <h3 id="top-movie-title"></h3>
+            <img id="top-movie-img">
+            <div id="top-movie-description"></div>
+        </div>
+    </div>
     <div class="carousels" style="margin-top: 200px;">
+        <div id="test">on fait des tests</div>
         <div id="best-rated-carousel" tabindex="0" class="carousel">
-            <h2>Best-rated movies</h2>
+            <h2>Other best-rated movies</h2>
 
             <ul>
                 <li id="best-rated-movie-slide1" class="slide">
@@ -36,35 +45,70 @@
                 </li>
                 
                 <li id="best-rated-movie-slide2" class="slide">
-                    <div class="carousel-snapper"></div>
+                    <div id="best-rated-movie-slide2-info">
+                        <h3 id="best-rated-movie-slide2-title"></h3>
+                        <img id="best-rated-movie-slide2-img">
+                        <div id="best-rated-movie-slide2-description"></div>
+                    </div>
+                        <div class="carousel-snapper"></div>
                         <a href="#best-rated-movie-slide1" class="carousel-previous">Go to previous slide</a>
                         <a href="#best-rated-movie-slide3" class="carousel-next">Go to next slide</a>
                 </li>
 
                 <li id="best-rated-movie-slide3" class="slide">
+                    <div id="best-rated-movie-slide3-info">
+                        <h3 id="best-rated-movie-slide3-title"></h3>
+                        <img id="best-rated-movie-slide3-img">
+                        <div id="best-rated-movie-slide3-description"></div>
+                    </div>
                     <div class="carousel-snapper"></div>
                         <a href="#best-rated-movie-slide2" class="carousel-previous">Go to previous slide</a>
                         <a href="#best-rated-movie-slide4" class="carousel-next">Go to next slide</a>
                 </li>
 
                 <li id="best-rated-movie-slide4" class="slide">
+                    <div id="best-rated-movie-slide4-info">
+                        <h3 id="best-rated-movie-slide4-title"></h3>
+                        <img id="best-rated-movie-slide4-img">
+                        <div id="best-rated-movie-slide4-description"></div>
+                    </div>
+
                     <div class="carousel-snapper"></div>
                         <a href="#best-rated-movie-slide3" class="carousel-previous">Go to previous slide</a>
                         <a href="#best-rated-movie-slide5" class="carousel-next">Go to next slide</a>
                 </li>
 
                 <li id="best-rated-movie-slide5" class="slide">
+                    <div id="best-rated-movie-slide5-info">
+                        <h3 id="best-rated-movie-slide5-title"></h3>
+                        <img id="best-rated-movie-slide5-img">
+                        <div id="best-rated-movie-slide5-description"></div>
+                    </div>
+
                     <div class="carousel-snapper"></div>
                         <a href="#best-rated-movie-slide4" class="carousel-previous">Go to previous slide</a>
                         <a href="#best-rated-movie-slide6" class="carousel-next">Go to next slide</a>
                 </li>
 
                 <li id="best-rated-movie-slide6" class="slide">
+                    <div id="best-rated-movie-slide6-info">
+                        <h3 id="best-rated-movie-slide6-title"></h3>
+                        <img id="best-rated-movie-slide6-img">
+                        <div id="best-rated-movie-slide6-description"></div>
+                    </div>
+
+
                     <div class="carousel-snapper"></div>
                         <a href="#best-rated-movie-slide5" class="carousel-previous">Go to previous slide</a>
                         <a href="#best-rated-movie-slide7" class="carousel-next">Go to next slide</a>
                 </li>
                 <li id="best-rated-movie-slide7" class="slide">
+                    <div id="best-rated-movie-slide7-info">
+                        <h3 id="best-rated-movie-slide7-title"></h3>
+                        <img id="best-rated-movie-slide7-img">
+                        <div id="best-rated-movie-slide7-description"></div>
+                    </div>
+
                     <div class="carousel-snapper"></div>
                         <a href="#best-rated-movie-slide6" class="carousel-previous">Go to previous slide</a>
                         <a href="#best-rated-movie-slide1" class="carousel-next">Go to first slide</a>
@@ -74,6 +118,7 @@
  
         </div>
         <div id="best-movie"></div>
+    </div>
 </body>
 
 </html>
