@@ -1,73 +1,773 @@
-/* function load_best_movie(url)
+/* Déclaration de constantes et variables
+--------------------------------------------------------------------------------- */
+const URLBASE = "http://localhost:8000/api/v1/titles/";
+let urlBest = URLBASE + "?sort_by=-imdb_score";
+let urlCarpenter = URLBASE + "?director=john+carpenter&sort_by=-imdb_score";
+let urlHistory = URLBASE + "?genre_contains=history&sort_by=-imdb_score";
+let urlMifune = URLBASE + "?actor_contains=mifune&sort_by=-votes";
+
+
+// fonction asynchrone d'appel qui crée une variable json à partir de la réponse
+async function test(url)
 {
-	load_json(url).then(json =>
-	{
-		load_json(json.results[0]["id"]).then(sub_json =>
-		{
-			document.getElementById("best-movie").innerHTML = 
-			`<div id="information-best-movie">
-				<h1 id="title-best-movie">${json.results[0]["title"]}</h1>
-				<button id="button-play" onclick="show_modal(${json.results[0]["id"]})">Play</button>
-				<p id="description-best-movie">${sub_json["long-description"]}</p>
-			</div>
-			<div id="img-best-movie">
-				<img src="${json.results[0]["image_url"]}" id="img_movie_0" width="450" height="550">
-			</div>`;
-
-		})
-	})
-}
-*/
-
-function loadBestMovie(url)
-{
-	loadJson(url).then(function (json)
-	{
-		loadJson(json.results[0]["id"]).then(function (subJson)
-		{
-			document.getElementById("best-rated-movie-slide1-title").innerHTML =
-			`${json.results[0]["title"]}`;
-
-			document.getElementById("best-rated-movie-slide1-img").src =
-			`${json.results[0]["image_url"]}`;
-
-			document.getElementById("best-rated-movie-slide1-description").innerHTML=
-			`Titre: ${json.results[0]["title"]} <br>
-			Genre: ${json.results[0]["genres"]} <br>
-			Année de sortie: ${json.results[0]["year"]} <br>
-			Score Imdb: ${json.results[0]["imdb_score"]} <br>
-			Réalisateur(s): ${json.results[0]["directors"]} <br>
-			Acteurs: ${json.results[0]["actors"]}` ;
-
-
-		})
-	})
+    const response = await fetch(url);
+    const result = await response.json();
+    return result;
 }
 
-// Durée: requête avec lien page imdb + getElementsByClass("ipc-inline-list__item").innerHTML
-
-function loadJson(url)
+async function call(url)
 {
-	try
-	{
-		return fetch(URL_BASE+url).then(function (response)
-		{
-			if (response.ok)
-			{
-				return response.json();
-			}
-			else
-			{
-				throw new Error("La requete a echoue.");
-			}
-		})
-	}
-	catch(e)
-	{
-		console.log(e.message)
-	}
+    let myArray = [];
+    let urlPage2 = url + "&page=2"
+    const data = await test(url);
+
+    for (row of data.results)
+    {
+        myArray.push(row);
+    }
+    console.log(myArray);
+
+
+    const dataPage2 = await test(urlPage2);
+    for (let i = 0; i < 2; i++)
+    {
+        myArray.push(dataPage2.results[i]);
+    }
+
+    return await Promise.all(myArray);
 }
 
-const URL_BASE = "http://localhost:8000/api/v1/titles/"
-let url = "?title=Alien"
-loadBestMovie(url)
+
+function convertToString(catList)
+{
+    let catString = "";
+    for (row of catList)
+    {
+        catString+= row + ", ";
+    }
+
+    if (catString.length > 0)
+    {
+        catString.slice(-1);
+    }
+    else
+    {
+        catString = "Not Specified";
+    }
+    return catString;
+}
+
+
+
+
+function fillDataBest(myArray)
+{
+    for (let i = 0; i < 7; i++)
+    {
+
+        document.getElementById(`best-rated-movie-slide${i+1}-title`).innerHTML =
+        `${myArray[i].title}`;
+
+        document.getElementById(`best-rated-movie-slide${i+1}-img`).src =
+        `${myArray[i].image_url}`;
+
+        try
+        {
+            let testValue = `${myArray[i].title}`;
+            if(typeof testValue !== "undefined")
+            {
+                throw new SyntaxError("Data not specified in database");
+            }
+        }
+        catch(e)
+        {
+        console.error("Import Error: " + e);
+        document.getElementById(`best-rated-movie-slide${i+1}-modal-heading`).innerHTML =
+        `${myArray[i].title}`;
+        }
+
+        try
+        {
+            let testValue = `${myArray[i].actors}`;
+            if(typeof testValue !== "undefined")
+            {
+                throw new SyntaxError("Data not specified in database");
+            }
+        }
+        catch(e)
+        {
+        console.error("Import Error: " + e);
+        document.getElementById(`best-rated-movie-slide${i+1}-modal-releasedate`).innerHTML +=
+        `${myArray[i].year}`;
+        }
+
+        try
+        {
+            let testValue = `${myArray[i].votes}`;
+            if(typeof testValue !== "undefined")
+            {
+                throw new SyntaxError("Data not specified in database");
+            }
+        }
+        catch(e)
+        {
+        console.error("Import Error: " + e);
+        document.getElementById(`best-rated-movie-slide${i+1}-modal-votes`).innerHTML +=
+        `${myArray[i].votes}`;
+        }
+
+        try
+        {
+            let testValue = `${myArray[i].imdb_score}`;
+            if(typeof testValue !== "undefined")
+            {
+                throw new SyntaxError("Data not specified in database");
+            }
+        }
+        catch(e)
+        {
+        console.error("Import Error: " + e);
+        document.getElementById(`best-rated-movie-slide${i+1}-modal-imdbscore`).innerHTML +=
+        `${myArray[i].imdb_score}`;
+        }
+
+        try
+        {
+            let testValue = `${myArray[i].genres}`;
+            if(typeof testValue !== "undefined")
+            {
+                throw new SyntaxError("Data not specified in database");
+            }
+        }
+        catch(e)
+        {
+        console.error("Import Error: " + e);
+
+        document.getElementById(`best-rated-movie-slide${i+1}-modal-genre`).innerHTML =
+        "Genre(s): " + convertToString(myArray[i].genres);
+        }
+
+        try
+        {
+            let testValue = `${myArray[i].directors}`;
+            if(typeof testValue !== "undefined")
+            {
+                throw new SyntaxError("Data not specified in database");
+            }
+        }
+        catch(e)
+        {
+        console.error("Import Error: " + e);
+        document.getElementById(`best-rated-movie-slide${i+1}-modal-directors`).innerHTML +=
+        convertToString(myArray[i].directors);
+        }
+
+        try
+        {
+            let testValue = `${myArray[i].actors}`;
+            if(typeof testValue !== "undefined")
+            {
+                throw new SyntaxError("Data not specified in database");
+            }
+        }
+        catch(e)
+        {
+        console.error("Import Error: " + e);
+        document.getElementById(`best-rated-movie-slide${i+1}-modal-actors`).innerHTML +=
+        convertToString(myArray[i].actors);
+        }
+
+        try
+        {
+            let testValue = `${myArray[i].duration}`;
+            if(typeof testValue !== "undefined")
+            {
+                throw new SyntaxError("Data not specified in database");
+            }
+        }
+        catch(e)
+        {
+        console.error("Import Error: " + e);
+        document.getElementById(`best-rated-movie-slide${i+1}-modal-duration`).innerHTML += "not in database";
+        }
+
+        try
+        {
+            let testValue = `${myArray[i].country}`;
+            if(typeof testValue !== "undefined")
+            {
+                throw new SyntaxError("Data not specified in database");
+            }
+        }
+        catch(e)
+        {
+        console.error("Import Error: " + e);
+        document.getElementById(`best-rated-movie-slide${i+1}-modal-country`).innerHTML += "not in database";
+        }
+
+        try
+        {
+            let testValue = `${myArray[i].box_office}`;
+            if(typeof testValue !== "undefined")
+            {
+                throw new SyntaxError("Data not specified in database");
+            }
+        }
+        catch(e)
+        {
+        console.error("Import Error: " + e);
+        document.getElementById(`best-rated-movie-slide${i+1}-modal-boxoffice`).innerHTML += " not in database";
+        }
+
+        try
+        {
+            let testValue = `${myArray[i].summary}`;
+            if(typeof testValue !== "undefined")
+            {
+                throw new SyntaxError("Data not specified in database");
+            }
+        }
+        catch(e)
+        {
+        console.error("Import Error: " + e);
+        document.getElementById(`best-rated-movie-slide${i+1}-modal-summary`).innerHTML += " not in database";
+        }
+    }
+}
+
+call(urlBest).then(res => fillDataBest(res))
+
+
+function fillDataCarpenter(myArray)
+{
+    for (let i = 0; i < 7; i++)
+    {
+
+        document.getElementById(`carpenter-movie-slide${i+1}-title`).innerHTML =
+        `${myArray[i].title}`;
+
+        document.getElementById(`carpenter-movie-slide${i+1}-img`).src =
+        `${myArray[i].image_url}`;
+
+        try
+        {
+            let testValue = `${myArray[i].title}`;
+            if(typeof testValue !== "undefined")
+            {
+                throw new SyntaxError("Data not specified in database");
+            }
+        }
+        catch(e)
+        {
+        console.error("Import Error: " + e);
+        document.getElementById(`carpenter-movie-slide${i+1}-modal-heading`).innerHTML =
+        `${myArray[i].title}`;
+        }
+
+        try
+        {
+            let testValue = `${myArray[i].actors}`;
+            if(typeof testValue !== "undefined")
+            {
+                throw new SyntaxError("Data not specified in database");
+            }
+        }
+        catch(e)
+        {
+        console.error("Import Error: " + e);
+        document.getElementById(`carpenter-movie-slide${i+1}-modal-releasedate`).innerHTML +=
+        `${myArray[i].year}`;
+        }
+
+        try
+        {
+            let testValue = `${myArray[i].votes}`;
+            if(typeof testValue !== "undefined")
+            {
+                throw new SyntaxError("Data not specified in database");
+            }
+        }
+        catch(e)
+        {
+        console.error("Import Error: " + e);
+        document.getElementById(`carpenter-movie-slide${i+1}-modal-votes`).innerHTML +=
+        `${myArray[i].votes}`;
+        }
+
+        try
+        {
+            let testValue = `${myArray[i].imdb_score}`;
+            if(typeof testValue !== "undefined")
+            {
+                throw new SyntaxError("Data not specified in database");
+            }
+        }
+        catch(e)
+        {
+        console.error("Import Error: " + e);
+        document.getElementById(`carpenter-movie-slide${i+1}-modal-imdbscore`).innerHTML +=
+        `${myArray[i].imdb_score}`;
+        }
+
+        try
+        {
+            let testValue = `${myArray[i].genres}`;
+            if(typeof testValue !== "undefined")
+            {
+                throw new SyntaxError("Data not specified in database");
+            }
+        }
+        catch(e)
+        {
+        console.error("Import Error: " + e);
+
+        document.getElementById(`carpenter-movie-slide${i+1}-modal-genre`).innerHTML =
+        "Genre(s): " + convertToString(myArray[i].genres);
+        }
+
+        try
+        {
+            let testValue = `${myArray[i].directors}`;
+            if(typeof testValue !== "undefined")
+            {
+                throw new SyntaxError("Data not specified in database");
+            }
+        }
+        catch(e)
+        {
+        console.error("Import Error: " + e);
+        document.getElementById(`carpenter-movie-slide${i+1}-modal-directors`).innerHTML +=
+        convertToString(myArray[i].directors);
+        }
+
+        try
+        {
+            let testValue = `${myArray[i].actors}`;
+            if(typeof testValue !== "undefined")
+            {
+                throw new SyntaxError("Data not specified in database");
+            }
+        }
+        catch(e)
+        {
+        console.error("Import Error: " + e);
+        document.getElementById(`carpenter-movie-slide${i+1}-modal-actors`).innerHTML +=
+        convertToString(myArray[i].actors);
+        }
+
+        try
+        {
+            let testValue = `${myArray[i].duration}`;
+            if(typeof testValue !== "undefined")
+            {
+                throw new SyntaxError("Data not specified in database");
+            }
+        }
+        catch(e)
+        {
+        console.error("Import Error: " + e);
+        document.getElementById(`carpenter-movie-slide${i+1}-modal-duration`).innerHTML += "not in database";
+        }
+
+        try
+        {
+            let testValue = `${myArray[i].country}`;
+            if(typeof testValue !== "undefined")
+            {
+                throw new SyntaxError("Data not specified in database");
+            }
+        }
+        catch(e)
+        {
+        console.error("Import Error: " + e);
+        document.getElementById(`carpenter-movie-slide${i+1}-modal-country`).innerHTML += "not in database";
+        }
+
+        try
+        {
+            let testValue = `${myArray[i].box_office}`;
+            if(typeof testValue !== "undefined")
+            {
+                throw new SyntaxError("Data not specified in database");
+            }
+        }
+        catch(e)
+        {
+        console.error("Import Error: " + e);
+        document.getElementById(`carpenter-movie-slide${i+1}-modal-boxoffice`).innerHTML += " not in database";
+        }
+
+        try
+        {
+            let testValue = `${myArray[i].summary}`;
+            if(typeof testValue !== "undefined")
+            {
+                throw new SyntaxError("Data not specified in database");
+            }
+        }
+        catch(e)
+        {
+        console.error("Import Error: " + e);
+        document.getElementById(`carpenter-movie-slide${i+1}-modal-summary`).innerHTML += " not in database";
+        }
+    }
+}
+
+call(urlCarpenter).then(res => fillDataCarpenter(res))
+
+
+function fillDataHistory(myArray)
+{
+    for (let i = 0; i < 7; i++)
+    {
+
+        document.getElementById(`history-movie-slide${i+1}-title`).innerHTML =
+        `${myArray[i].title}`;
+
+        document.getElementById(`history-movie-slide${i+1}-img`).src =
+        `${myArray[i].image_url}`;
+
+        try
+        {
+            let testValue = `${myArray[i].title}`;
+            if(typeof testValue !== "undefined")
+            {
+                throw new SyntaxError("Data not specified in database");
+            }
+        }
+        catch(e)
+        {
+        console.error("Import Error: " + e);
+        document.getElementById(`history-movie-slide${i+1}-modal-heading`).innerHTML =
+        `${myArray[i].title}`;
+        }
+
+        try
+        {
+            let testValue = `${myArray[i].actors}`;
+            if(typeof testValue !== "undefined")
+            {
+                throw new SyntaxError("Data not specified in database");
+            }
+        }
+        catch(e)
+        {
+        console.error("Import Error: " + e);
+        document.getElementById(`history-movie-slide${i+1}-modal-releasedate`).innerHTML +=
+        `${myArray[i].year}`;
+        }
+
+        try
+        {
+            let testValue = `${myArray[i].votes}`;
+            if(typeof testValue !== "undefined")
+            {
+                throw new SyntaxError("Data not specified in database");
+            }
+        }
+        catch(e)
+        {
+        console.error("Import Error: " + e);
+        document.getElementById(`history-movie-slide${i+1}-modal-votes`).innerHTML +=
+        `${myArray[i].votes}`;
+        }
+
+        try
+        {
+            let testValue = `${myArray[i].imdb_score}`;
+            if(typeof testValue !== "undefined")
+            {
+                throw new SyntaxError("Data not specified in database");
+            }
+        }
+        catch(e)
+        {
+        console.error("Import Error: " + e);
+        document.getElementById(`history-movie-slide${i+1}-modal-imdbscore`).innerHTML +=
+        `${myArray[i].imdb_score}`;
+        }
+
+        try
+        {
+            let testValue = `${myArray[i].genres}`;
+            if(typeof testValue !== "undefined")
+            {
+                throw new SyntaxError("Data not specified in database");
+            }
+        }
+        catch(e)
+        {
+        console.error("Import Error: " + e);
+
+        document.getElementById(`history-movie-slide${i+1}-modal-genre`).innerHTML =
+        "Genre(s): " + convertToString(myArray[i].genres);
+        }
+
+        try
+        {
+            let testValue = `${myArray[i].directors}`;
+            if(typeof testValue !== "undefined")
+            {
+                throw new SyntaxError("Data not specified in database");
+            }
+        }
+        catch(e)
+        {
+        console.error("Import Error: " + e);
+        document.getElementById(`history-movie-slide${i+1}-modal-directors`).innerHTML +=
+        convertToString(myArray[i].directors);
+        }
+
+        try
+        {
+            let testValue = `${myArray[i].actors}`;
+            if(typeof testValue !== "undefined")
+            {
+                throw new SyntaxError("Data not specified in database");
+            }
+        }
+        catch(e)
+        {
+        console.error("Import Error: " + e);
+        document.getElementById(`history-movie-slide${i+1}-modal-actors`).innerHTML +=
+        convertToString(myArray[i].actors);
+        }
+
+        try
+        {
+            let testValue = `${myArray[i].duration}`;
+            if(typeof testValue !== "undefined")
+            {
+                throw new SyntaxError("Data not specified in database");
+            }
+        }
+        catch(e)
+        {
+        console.error("Import Error: " + e);
+        document.getElementById(`history-movie-slide${i+1}-modal-duration`).innerHTML += "not in database";
+        }
+
+        try
+        {
+            let testValue = `${myArray[i].country}`;
+            if(typeof testValue !== "undefined")
+            {
+                throw new SyntaxError("Data not specified in database");
+            }
+        }
+        catch(e)
+        {
+        console.error("Import Error: " + e);
+        document.getElementById(`history-movie-slide${i+1}-modal-country`).innerHTML += "not in database";
+        }
+
+        try
+        {
+            let testValue = `${myArray[i].box_office}`;
+            if(typeof testValue !== "undefined")
+            {
+                throw new SyntaxError("Data not specified in database");
+            }
+        }
+        catch(e)
+        {
+        console.error("Import Error: " + e);
+        document.getElementById(`history-movie-slide${i+1}-modal-boxoffice`).innerHTML += " not in database";
+        }
+
+        try
+        {
+            let testValue = `${myArray[i].summary}`;
+            if(typeof testValue !== "undefined")
+            {
+                throw new SyntaxError("Data not specified in database");
+            }
+        }
+        catch(e)
+        {
+        console.error("Import Error: " + e);
+        document.getElementById(`history-movie-slide${i+1}-modal-summary`).innerHTML += " not in database";
+        }
+    }
+}
+
+call(urlHistory).then(res => fillDataHistory(res))
+
+
+function fillDataMifune(myArray)
+{
+    for (let i = 0; i < 7; i++)
+    {
+
+        document.getElementById(`mifune-movie-slide${i+1}-title`).innerHTML =
+        `${myArray[i].title}`;
+
+        document.getElementById(`mifune-movie-slide${i+1}-img`).src =
+        `${myArray[i].image_url}`;
+
+        try
+        {
+            let testValue = `${myArray[i].title}`;
+            if(typeof testValue !== "undefined")
+            {
+                throw new SyntaxError("Data not specified in database");
+            }
+        }
+        catch(e)
+        {
+        console.error("Import Error: " + e);
+        document.getElementById(`mifune-movie-slide${i+1}-modal-heading`).innerHTML =
+        `${myArray[i].title}`;
+        }
+
+        try
+        {
+            let testValue = `${myArray[i].actors}`;
+            if(typeof testValue !== "undefined")
+            {
+                throw new SyntaxError("Data not specified in database");
+            }
+        }
+        catch(e)
+        {
+        console.error("Import Error: " + e);
+        document.getElementById(`mifune-movie-slide${i+1}-modal-releasedate`).innerHTML +=
+        `${myArray[i].year}`;
+        }
+
+        try
+        {
+            let testValue = `${myArray[i].votes}`;
+            if(typeof testValue !== "undefined")
+            {
+                throw new SyntaxError("Data not specified in database");
+            }
+        }
+        catch(e)
+        {
+        console.error("Import Error: " + e);
+        document.getElementById(`mifune-movie-slide${i+1}-modal-votes`).innerHTML +=
+        `${myArray[i].votes}`;
+        }
+
+        try
+        {
+            let testValue = `${myArray[i].imdb_score}`;
+            if(typeof testValue !== "undefined")
+            {
+                throw new SyntaxError("Data not specified in database");
+            }
+        }
+        catch(e)
+        {
+        console.error("Import Error: " + e);
+        document.getElementById(`mifune-movie-slide${i+1}-modal-imdbscore`).innerHTML +=
+        `${myArray[i].imdb_score}`;
+        }
+
+        try
+        {
+            let testValue = `${myArray[i].genres}`;
+            if(typeof testValue !== "undefined")
+            {
+                throw new SyntaxError("Data not specified in database");
+            }
+        }
+        catch(e)
+        {
+        console.error("Import Error: " + e);
+
+        document.getElementById(`mifune-movie-slide${i+1}-modal-genre`).innerHTML =
+        "Genre(s): " + convertToString(myArray[i].genres);
+        }
+
+        try
+        {
+            let testValue = `${myArray[i].directors}`;
+            if(typeof testValue !== "undefined")
+            {
+                throw new SyntaxError("Data not specified in database");
+            }
+        }
+        catch(e)
+        {
+        console.error("Import Error: " + e);
+        document.getElementById(`mifune-movie-slide${i+1}-modal-directors`).innerHTML +=
+        convertToString(myArray[i].directors);
+        }
+
+        try
+        {
+            let testValue = `${myArray[i].actors}`;
+            if(typeof testValue !== "undefined")
+            {
+                throw new SyntaxError("Data not specified in database");
+            }
+        }
+        catch(e)
+        {
+        console.error("Import Error: " + e);
+        document.getElementById(`mifune-movie-slide${i+1}-modal-actors`).innerHTML +=
+        convertToString(myArray[i].actors);
+        }
+
+        try
+        {
+            let testValue = `${myArray[i].duration}`;
+            if(typeof testValue !== "undefined")
+            {
+                throw new SyntaxError("Data not specified in database");
+            }
+        }
+        catch(e)
+        {
+        console.error("Import Error: " + e);
+        document.getElementById(`mifune-movie-slide${i+1}-modal-duration`).innerHTML += "not in database";
+        }
+
+        try
+        {
+            let testValue = `${myArray[i].country}`;
+            if(typeof testValue !== "undefined")
+            {
+                throw new SyntaxError("Data not specified in database");
+            }
+        }
+        catch(e)
+        {
+        console.error("Import Error: " + e);
+        document.getElementById(`mifune-movie-slide${i+1}-modal-country`).innerHTML += "not in database";
+        }
+
+        try
+        {
+            let testValue = `${myArray[i].box_office}`;
+            if(typeof testValue !== "undefined")
+            {
+                throw new SyntaxError("Data not specified in database");
+            }
+        }
+        catch(e)
+        {
+        console.error("Import Error: " + e);
+        document.getElementById(`mifune-movie-slide${i+1}-modal-boxoffice`).innerHTML += " not in database";
+        }
+
+        try
+        {
+            let testValue = `${myArray[i].summary}`;
+            if(typeof testValue !== "undefined")
+            {
+                throw new SyntaxError("Data not specified in database");
+            }
+        }
+        catch(e)
+        {
+        console.error("Import Error: " + e);
+        document.getElementById(`mifune-movie-slide${i+1}-modal-summary`).innerHTML += " not in database";
+        }
+    }
+}
+
+call(urlMifune).then(res => fillDataMifune(res))
+
