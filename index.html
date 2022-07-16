@@ -16,39 +16,32 @@
                 <img src="stream-it_mini.png" alt="Logo de Stream It"/>
             </li>
             <li id="menu-nav-accueil" class="menu-nav">
-                <a class="menu-nav-link" href=#flex-container>Accueil</a>
+                <a class="menu-nav-link" href=#flex-container>Go on top</a>
             </li>
             <li id="menu-nav-cat" class="menu-nav">
-                <a>Catégories</a>
+                <ul class="menu-nav-sub">
+                    <li><a href="">Categories</a></li>
+                    <li><a href="#best-rated-carousel">Best movies</a></li>
+                    <li><a href="#carpenter-carousel">John Carpenter</a></li>
+                    <li><a href="#history-carousel">Historical movies</a></li>
+                    <li><a href="#mifune-carousel">Starring Tôshiro Mifune</a></li>
+                </ul>
             </li>
         </ul>
-        </nav>
-
-    </div>
+    </nav>
     </header>
 
 
     <div class ="top movie">
         <h2>Best-rated movie</h2>
         <div id="top-movie-info">
-            <h3 id="top-movie-title"></h3>
-            <img id="top-movie-img">
-            <div id="top-movie-description"></div>
-        </div>
-    </div>
-
-    <div class="carousels" style="margin-top: 200px;">
-        <div class="carousel-container" id="best-rated-carousel" tabindex="0">
-            <h2>Other best-rated movies</h2>
-
                 <div id="best-rated-movie-slide1" class="slide">
                     <div id="best-rated-movie-slide1-info">
-                        <h3 id="best-rated-movie-slide1-title"></h3>
                         <img id="best-rated-movie-slide1-img">
                         <div role=dialog" aria-modal="true" aria-labelledby="modal-heading" id="best-rated-movie-slide1-modal">
                             <button>Close</button>
                             <h1 id="best-rated-movie-slide1-modal-heading"></h1>
-                            <div id="best-rated-movie-slide1-modal-genre">Genre:</div>
+                            <div id="best-rated-movie-slide1-modal-genre">Genre:<span id="modal-genre"></span></div>
                             <div id="best-rated-movie-slide1-modal-releasedate">Year:</div>
                             <div id="best-rated-movie-slide1-modal-votes">Votes:</div>
                             <div id="best-rated-movie-slide1-modal-imdbscore">IMDb Score:</div>
@@ -59,16 +52,19 @@
                             <div id="best-rated-movie-slide1-modal-boxoffice">Box-Office:</div>
                             <div id="best-rated-movie-slide1-modal-summary">Summary:</div>
                         </div>
-
                     </div>
-                    <div class="carousel-snapper"></div>
-                        <a href="#best-rated-movie-slide7" class="carousel-previous">Go to last slide</a>
-                        <a href="#best-rated-movie-slide2" class="carousel-next">Go to next slide</a>
                 </div>
-                
-                <div id="best-rated-movie-slide2" class="slide">-->
+            </div>
+        </div>
+    </div>
+
+    <div class="carousels" style="margin-top: 200px;">
+        <div class="carousel-container" id="best-rated-carousel" tabindex="0">
+            <h2>Other best-rated movies</h2>
+
+            <div class="carousel">
+                <div id="best-rated-movie-slide2" class="slide">
                     <div id="best-rated-movie-slide2-info">
-                        <h3 id="best-rated-movie-slide2-title"></h3>
                         <img id="best-rated-movie-slide2-img">
                         <div role=dialog" aria-modal="true" aria-labelledby="modal-heading" id="best-rated-movie-slide2-modal">
                             <button>Close</button>
@@ -85,14 +81,10 @@
                             <div id="best-rated-movie-slide2-modal-summary">Summary:</div>
                         </div>
                     </div>
-                        <div class="carousel-snapper"></div>
-                        <a href="#best-rated-movie-slide1" class="carousel-previous">Go to previous slide</a>
-                        <a href="#best-rated-movie-slide3" class="carousel-next">Go to next slide</a>
                 </div>
 
                 <div id="best-rated-movie-slide3" class="slide">
                     <div id="best-rated-movie-slide3-info">
-                        <h3 id="best-rated-movie-slide3-title"></h3>
                         <img id="best-rated-movie-slide3-img">
                         <div role=dialog" aria-modal="true" aria-labelledby="modal-heading" id="best-rated-movie-slide3-modal">
                             <button>Close</button>
@@ -110,14 +102,10 @@
                         </div>
 
                     </div>
-                    <div class="carousel-snapper"></div>
-                        <a href="#best-rated-movie-slide2" class="carousel-previous">Go to previous slide</a>
-                        <a href="#best-rated-movie-slide4" class="carousel-next">Go to next slide</a>
                 </div>
 
                 <div id="best-rated-movie-slide4" class="slide">
                     <div id="best-rated-movie-slide4-info">
-                        <h3 id="best-rated-movie-slide4-title"></h3>
                         <img id="best-rated-movie-slide4-img">
                         <div role=dialog" aria-modal="true" aria-labelledby="modal-heading" id="best-rated-movie-slide4-modal">
                             <button>Close</button>
@@ -135,15 +123,10 @@
                         </div>
 
                     </div>
-
-                    <div class="carousel-snapper"></div>
-                        <a href="#best-rated-movie-slide3" class="carousel-previous">Go to previous slide</a>
-                        <a href="#best-rated-movie-slide5" class="carousel-next">Go to next slide</a>
                 </div>
 
                 <div id="best-rated-movie-slide5" class="slide">
                     <div id="best-rated-movie-slide5-info">
-                        <h3 id="best-rated-movie-slide5-title"></h3>
                         <img id="best-rated-movie-slide5-img">
                         <div role=dialog" aria-modal="true" aria-labelledby="modal-heading" id="best-rated-movie-slide5-modal">
                             <button>Close</button>
@@ -161,15 +144,10 @@
                         </div>
 
                     </div>
-
-                    <div class="carousel-snapper"></div>
-                        <a href="#best-rated-movie-slide4" class="carousel-previous">Go to previous slide</a>
-                        <a href="#best-rated-movie-slide6" class="carousel-next">Go to next slide</a>
                 </div>
 
                 <div id="best-rated-movie-slide6" class="slide">
                     <div id="best-rated-movie-slide6-info">
-                        <h3 id="best-rated-movie-slide6-title"></h3>
                         <img id="best-rated-movie-slide6-img">
                         <div role=dialog" aria-modal="true" aria-labelledby="modal-heading" id="best-rated-movie-slide6-modal">
                             <button>Close</button>
@@ -186,16 +164,10 @@
                             <div id="best-rated-movie-slide6-modal-summary">Summary:</div>
                         </div>
                     </div>
-
-
-                    <div class="carousel-snapper"></div>
-                        <a href="#best-rated-movie-slide5" class="carousel-previous">Go to previous slide</a>
-                        <a href="#best-rated-movie-slide7" class="carousel-next">Go to next slide</a>
                 </div>
 
                 <div id="best-rated-movie-slide7" class="slide">
                     <div id="best-rated-movie-slide7-info">
-                        <h3 id="best-rated-movie-slide7-title"></h3>
                         <img id="best-rated-movie-slide7-img">
                         <div role=dialog" aria-modal="true" aria-labelledby="modal-heading" id="best-rated-movie-slide7-modal">
                             <button>Close</button>
@@ -212,12 +184,8 @@
                             <div id="best-rated-movie-slide7-modal-summary">Summary:</div>
                         </div>
                     </div>
-
-                    <div class="carousel-snapper"></div>
-                        <a href="#best-rated-movie-slide6" class="carousel-previous">Go to previous slide</a>
-                        <a href="#best-rated-movie-slide1" class="carousel-next">Go to first slide</a>
                 </div>
-
+            </div>
         </div>
     </div>
 
@@ -225,9 +193,9 @@
         <div class="carousel-container" id="carpenter-carousel" tabindex="0">
             <h2>John Carpenter movies</h2>
 
+            <div class="carousel">
                 <div id="carpenter-movie-slide1" class="slide">
                     <div id="carpenter-movie-slide1-info">
-                        <h3 id="carpenter-movie-slide1-title"></h3>
                         <img id="carpenter-movie-slide1-img">
                         <div role=dialog" aria-modal="true" aria-labelledby="modal-heading" id="carpenter-movie-slide1-modal">
                             <button>Close</button>
@@ -243,16 +211,11 @@
                             <div id="carpenter-movie-slide1-modal-boxoffice">Box-Office:</div>
                             <div id="carpenter-movie-slide1-modal-summary">Summary:</div>
                         </div>
-
                     </div>
-                    <div class="carousel-snapper"></div>
-                        <a href="#carpenter-movie-slide7" class="carousel-previous">Go to last slide</a>
-                        <a href="#carpenter-movie-slide2" class="carousel-next">Go to next slide</a>
                 </div>
 
                 <div id="carpenter-movie-slide2" class="slide">
                     <div id="carpenter-movie-slide2-info">
-                        <h3 id="carpenter-movie-slide2-title"></h3>
                         <img id="carpenter-movie-slide2-img">
                         <div role=dialog" aria-modal="true" aria-labelledby="modal-heading" id="carpenter-movie-slide2-modal">
                             <button>Close</button>
@@ -269,14 +232,10 @@
                             <div id="carpenter-movie-slide2-modal-summary">Summary:</div>
                         </div>
                     </div>
-                        <div class="carousel-snapper"></div>
-                        <a href="#carpenter-movie-slide1" class="carousel-previous">Go to previous slide</a>
-                        <a href="#carpenter-movie-slide3" class="carousel-next">Go to next slide</a>
                 </div>
 
                 <div id="carpenter-movie-slide3" class="slide">
                     <div id="carpenter-movie-slide3-info">
-                        <h3 id="carpenter-movie-slide3-title"></h3>
                         <img id="carpenter-movie-slide3-img">
                         <div role=dialog" aria-modal="true" aria-labelledby="modal-heading" id="carpenter-movie-slide3-modal">
                             <button>Close</button>
@@ -294,14 +253,10 @@
                         </div>
 
                     </div>
-                    <div class="carousel-snapper"></div>
-                        <a href="#carpenter-movie-slide2" class="carousel-previous">Go to previous slide</a>
-                        <a href="#carpenter-movie-slide4" class="carousel-next">Go to next slide</a>
                 </div>
 
                 <div id="carpenter-movie-slide4" class="slide">
                     <div id="carpenter-movie-slide4-info">
-                        <h3 id="carpenter-movie-slide4-title"></h3>
                         <img id="carpenter-movie-slide4-img">
                         <div role=dialog" aria-modal="true" aria-labelledby="modal-heading" id="carpenter-movie-slide4-modal">
                             <button>Close</button>
@@ -319,15 +274,10 @@
                         </div>
 
                     </div>
-
-                    <div class="carousel-snapper"></div>
-                        <a href="#carpenter-movie-slide3" class="carousel-previous">Go to previous slide</a>
-                        <a href="#carpenter-movie-slide5" class="carousel-next">Go to next slide</a>
                 </div>
 
                 <div id="carpenter-movie-slide5" class="slide">
                     <div id="carpenter-movie-slide5-info">
-                        <h3 id="carpenter-movie-slide5-title"></h3>
                         <img id="carpenter-movie-slide5-img">
                         <div role=dialog" aria-modal="true" aria-labelledby="modal-heading" id="carpenter-movie-slide5-modal">
                             <button>Close</button>
@@ -343,17 +293,11 @@
                             <div id="carpenter-movie-slide5-modal-boxoffice">Box-Office:</div>
                             <div id="carpenter-movie-slide5-modal-summary">Summary:</div>
                         </div>
-
                     </div>
-
-                    <div class="carousel-snapper"></div>
-                        <a href="#carpenter-movie-slide4" class="carousel-previous">Go to previous slide</a>
-                        <a href="#carpenter-movie-slide6" class="carousel-next">Go to next slide</a>
                 </div>
 
                 <div id="carpenter-movie-slide6" class="slide">
                     <div id="carpenter-movie-slide6-info">
-                        <h3 id="carpenter-movie-slide6-title"></h3>
                         <img id="carpenter-movie-slide6-img">
                         <div role=dialog" aria-modal="true" aria-labelledby="modal-heading" id="carpenter-movie-slide6-modal">
                             <button>Close</button>
@@ -370,16 +314,10 @@
                             <div id="carpenter-movie-slide6-modal-summary">Summary:</div>
                         </div>
                     </div>
-
-
-                    <div class="carousel-snapper"></div>
-                        <a href="#carpenter-movie-slide5" class="carousel-previous">Go to previous slide</a>
-                        <a href="#carpenter-movie-slide7" class="carousel-next">Go to next slide</a>
                 </div>
 
                 <div id="carpenter-movie-slide7" class="slide">
                     <div id="carpenter-movie-slide7-info">
-                        <h3 id="carpenter-movie-slide7-title"></h3>
                         <img id="carpenter-movie-slide7-img">
                         <div role=dialog" aria-modal="true" aria-labelledby="modal-heading" id="carpenter-movie-slide7-modal">
                             <button>Close</button>
@@ -396,22 +334,17 @@
                             <div id="carpenter-movie-slide7-modal-summary">Summary:</div>
                         </div>
                     </div>
-
-                    <div class="carousel-snapper"></div>
-                        <a href="#carpenter-movie-slide6" class="carousel-previous">Go to previous slide</a>
-                        <a href="#carpenter-movie-slide1" class="carousel-next">Go to first slide</a>
                 </div>
-
+            </div>
         </div>
     </div>
 
     <div class="carousels" style="margin-top: 200px;">
         <div class="carousel-container" id="history-carousel" tabindex="0">
             <h2>Historical movies</h2>
-
+            <div class="carousel">
                 <div id="history-movie-slide1" class="slide">
                     <div id="history-movie-slide1-info">
-                        <h3 id="history-movie-slide1-title"></h3>
                         <img id="history-movie-slide1-img">
                         <div role=dialog" aria-modal="true" aria-labelledby="modal-heading" id="history-movie-slide1-modal">
                             <button>Close</button>
@@ -427,16 +360,11 @@
                             <div id="history-movie-slide1-modal-boxoffice">Box-Office:</div>
                             <div id="history-movie-slide1-modal-summary">Summary:</div>
                         </div>
-
                     </div>
-                    <div class="carousel-snapper"></div>
-                        <a href="#history-movie-slide7" class="carousel-previous">Go to last slide</a>
-                        <a href="#history-movie-slide2" class="carousel-next">Go to next slide</a>
                 </div>
 
                 <div id="history-movie-slide2" class="slide">
                     <div id="history-movie-slide2-info">
-                        <h3 id="history-movie-slide2-title"></h3>
                         <img id="history-movie-slide2-img">
                         <div role=dialog" aria-modal="true" aria-labelledby="modal-heading" id="history-movie-slide2-modal">
                             <button>Close</button>
@@ -453,14 +381,10 @@
                             <div id="history-movie-slide2-modal-summary">Summary:</div>
                         </div>
                     </div>
-                        <div class="carousel-snapper"></div>
-                        <a href="#history-movie-slide1" class="carousel-previous">Go to previous slide</a>
-                        <a href="#history-movie-slide3" class="carousel-next">Go to next slide</a>
                 </div>
 
                 <div id="history-movie-slide3" class="slide">
                     <div id="history-movie-slide3-info">
-                        <h3 id="history-movie-slide3-title"></h3>
                         <img id="history-movie-slide3-img">
                         <div role=dialog" aria-modal="true" aria-labelledby="modal-heading" id="history-movie-slide3-modal">
                             <button>Close</button>
@@ -478,14 +402,10 @@
                         </div>
 
                     </div>
-                    <div class="carousel-snapper"></div>
-                        <a href="#history-movie-slide2" class="carousel-previous">Go to previous slide</a>
-                        <a href="#history-movie-slide4" class="carousel-next">Go to next slide</a>
                 </div>
 
                 <div id="history-movie-slide4" class="slide">
                     <div id="history-movie-slide4-info">
-                        <h3 id="history-movie-slide4-title"></h3>
                         <img id="history-movie-slide4-img">
                         <div role=dialog" aria-modal="true" aria-labelledby="modal-heading" id="history-movie-slide4-modal">
                             <button>Close</button>
@@ -503,15 +423,10 @@
                         </div>
 
                     </div>
-
-                    <div class="carousel-snapper"></div>
-                        <a href="#history-movie-slide3" class="carousel-previous">Go to previous slide</a>
-                        <a href="#history-movie-slide5" class="carousel-next">Go to next slide</a>
                 </div>
 
                 <div id="history-movie-slide5" class="slide">
                     <div id="history-movie-slide5-info">
-                        <h3 id="history-movie-slide5-title"></h3>
                         <img id="history-movie-slide5-img">
                         <div role=dialog" aria-modal="true" aria-labelledby="modal-heading" id="history-movie-slide5-modal">
                             <button>Close</button>
@@ -529,15 +444,10 @@
                         </div>
 
                     </div>
-
-                    <div class="carousel-snapper"></div>
-                        <a href="#history-movie-slide4" class="carousel-previous">Go to previous slide</a>
-                        <a href="#history-movie-slide6" class="carousel-next">Go to next slide</a>
                 </div>
 
                 <div id="history-movie-slide6" class="slide">
                     <div id="history-movie-slide6-info">
-                        <h3 id="history-movie-slide6-title"></h3>
                         <img id="history-movie-slide6-img">
                         <div role=dialog" aria-modal="true" aria-labelledby="modal-heading" id="history-movie-slide6-modal">
                             <button>Close</button>
@@ -554,16 +464,10 @@
                             <div id="history-movie-slide6-modal-summary">Summary:</div>
                         </div>
                     </div>
-
-
-                    <div class="carousel-snapper"></div>
-                        <a href="#history-movie-slide5" class="carousel-previous">Go to previous slide</a>
-                        <a href="#history-movie-slide7" class="carousel-next">Go to next slide</a>
                 </div>
 
                 <div id="history-movie-slide7" class="slide">
                     <div id="history-movie-slide7-info">
-                        <h3 id="history-movie-slide7-title"></h3>
                         <img id="history-movie-slide7-img">
                         <div role=dialog" aria-modal="true" aria-labelledby="modal-heading" id="history-movie-slide7-modal">
                             <button>Close</button>
@@ -580,24 +484,18 @@
                             <div id="history-movie-slide7-modal-summary">Summary:</div>
                         </div>
                     </div>
-
-                    <div class="carousel-snapper"></div>
-                        <a href="#history-movie-slide6" class="carousel-previous">Go to previous slide</a>
-                        <a href="#history-movie-slide1" class="carousel-next">Go to first slide</a>
                 </div>
-
+            </div>
         </div>
     </div>
 
     <div class="carousels" style="margin-top: 200px;">
-        <div class="carousel-container"></div>
-        <div id="mifune-carousel" tabindex="0" class="carousel">
+        <div class="carousel-container" id="mifune-carousel" tabindex="0" >
             <h2>Mifune Tôshiro popular movies</h2>
 
-
+            <div class="carousel">
                 <div id="mifune-movie-slide1" class="slide">
                     <div id="mifune-movie-slide1-info">
-                        <h3 id="mifune-movie-slide1-title"></h3>
                         <img id="mifune-movie-slide1-img">
                         <div role=dialog" aria-modal="true" aria-labelledby="modal-heading" id="mifune-movie-slide1-modal">
                             <button>Close</button>
@@ -613,16 +511,11 @@
                             <div id="mifune-movie-slide1-modal-boxoffice">Box-Office:</div>
                             <div id="mifune-movie-slide1-modal-summary">Summary:</div>
                         </div>
-
                     </div>
-                    <div class="carousel-snapper"></div>
-                        <a href="#mifune-movie-slide7" class="carousel-previous">Go to last slide</a>
-                        <a href="#mifune-movie-slide2" class="carousel-next">Go to next slide</a>
                 </div>
 
                 <div id="mifune-movie-slide2" class="slide">
                     <div id="mifune-movie-slide2-info">
-                        <h3 id="mifune-movie-slide2-title"></h3>
                         <img id="mifune-movie-slide2-img">
                         <div role=dialog" aria-modal="true" aria-labelledby="modal-heading" id="mifune-movie-slide2-modal">
                             <button>Close</button>
@@ -639,14 +532,10 @@
                             <div id="mifune-movie-slide2-modal-summary">Summary:</div>
                         </div>
                     </div>
-                        <div class="carousel-snapper"></div>
-                        <a href="#mifune-movie-slide1" class="carousel-previous">Go to previous slide</a>
-                        <a href="#mifune-movie-slide3" class="carousel-next">Go to next slide</a>
                 </div>
 
                 <div id="mifune-movie-slide3" class="slide">
                     <div id="mifune-movie-slide3-info">
-                        <h3 id="mifune-movie-slide3-title"></h3>
                         <img id="mifune-movie-slide3-img">
                         <div role=dialog" aria-modal="true" aria-labelledby="modal-heading" id="mifune-movie-slide3-modal">
                             <button>Close</button>
@@ -664,14 +553,10 @@
                         </div>
 
                     </div>
-                    <div class="carousel-snapper"></div>
-                        <a href="#mifune-movie-slide2" class="carousel-previous">Go to previous slide</a>
-                        <a href="#mifune-movie-slide4" class="carousel-next">Go to next slide</a>
                 </div>
 
                 <div id="mifune-movie-slide4" class="slide">
                     <div id="mifune-movie-slide4-info">
-                        <h3 id="mifune-movie-slide4-title"></h3>
                         <img id="mifune-movie-slide4-img">
                         <div role=dialog" aria-modal="true" aria-labelledby="modal-heading" id="mifune-movie-slide4-modal">
                             <button>Close</button>
@@ -687,17 +572,11 @@
                             <div id="mifune-movie-slide4-modal-boxoffice">Box-Office:</div>
                             <div id="mifune-movie-slide4-modal-summary">Summary:</div>
                         </div>
-
                     </div>
-
-                    <div class="carousel-snapper"></div>
-                        <a href="#mifune-movie-slide3" class="carousel-previous">Go to previous slide</a>
-                        <a href="#mifune-movie-slide5" class="carousel-next">Go to next slide</a>
                 </div>
 
                 <div id="mifune-movie-slide5" class="slide">
                     <div id="mifune-movie-slide5-info">
-                        <h3 id="mifune-movie-slide5-title"></h3>
                         <img id="mifune-movie-slide5-img">
                         <div role=dialog" aria-modal="true" aria-labelledby="modal-heading" id="mifune-movie-slide5-modal">
                             <button>Close</button>
@@ -713,17 +592,11 @@
                             <div id="mifune-movie-slide5-modal-boxoffice">Box-Office:</div>
                             <div id="mifune-movie-slide5-modal-summary">Summary:</div>
                         </div>
-
                     </div>
-
-                    <div class="carousel-snapper"></div>
-                        <a href="#mifune-movie-slide4" class="carousel-previous">Go to previous slide</a>
-                        <a href="#mifune-movie-slide6" class="carousel-next">Go to next slide</a>
                 </div>
 
                 <div id="mifune-movie-slide6" class="slide">
                     <div id="mifune-movie-slide6-info">
-                        <h3 id="mifune-movie-slide6-title"></h3>
                         <img id="mifune-movie-slide6-img">
                         <div role=dialog" aria-modal="true" aria-labelledby="modal-heading" id="mifune-movie-slide6-modal">
                             <button>Close</button>
@@ -740,16 +613,10 @@
                             <div id="mifune-movie-slide6-modal-summary">Summary:</div>
                         </div>
                     </div>
-
-
-                    <div class="carousel-snapper"></div>
-                        <a href="#mifune-movie-slide5" class="carousel-previous">Go to previous slide</a>
-                        <a href="#mifune-movie-slide7" class="carousel-next">Go to next slide</a>
                 </div>
 
                 <div id="mifune-movie-slide7" class="slide">
                     <div id="mifune-movie-slide7-info">
-                        <h3 id="mifune-movie-slide7-title"></h3>
                         <img id="mifune-movie-slide7-img">
                         <div role=dialog" aria-modal="true" aria-labelledby="modal-heading" id="mifune-movie-slide7-modal">
                             <button>Close</button>
@@ -766,16 +633,10 @@
                             <div id="mifune-movie-slide7-modal-summary">Summary:</div>
                         </div>
                     </div>
-
-                    <div class="carousel-snapper"></div>
-                        <a href="#mifune-movie-slide6" class="carousel-previous">Go to previous slide</a>
-                        <a href="#mifune-movie-slide1" class="carousel-next">Go to first slide</a>
                 </div>
-
-
+            </div>
 
         </div>
-
     </div>
 
 </body>

@@ -15,6 +15,7 @@ async function test(url)
     return result;
 }
 
+// fonction asynchrone d'appel qui transforme le json en liste de données
 async function call(url)
 {
     let myArray = [];
@@ -37,7 +38,7 @@ async function call(url)
     return await Promise.all(myArray);
 }
 
-
+// fonction qui s
 function convertToString(catList)
 {
     let catString = "";
@@ -64,10 +65,6 @@ function fillDataBest(myArray)
 {
     for (let i = 0; i < 7; i++)
     {
-
-        document.getElementById(`best-rated-movie-slide${i+1}-title`).innerHTML =
-        `${myArray[i].title}`;
-
         document.getElementById(`best-rated-movie-slide${i+1}-img`).src =
         `${myArray[i].image_url}`;
 
@@ -242,9 +239,6 @@ function fillDataCarpenter(myArray)
 {
     for (let i = 0; i < 7; i++)
     {
-
-        document.getElementById(`carpenter-movie-slide${i+1}-title`).innerHTML =
-        `${myArray[i].title}`;
 
         document.getElementById(`carpenter-movie-slide${i+1}-img`).src =
         `${myArray[i].image_url}`;
@@ -421,9 +415,6 @@ function fillDataHistory(myArray)
     for (let i = 0; i < 7; i++)
     {
 
-        document.getElementById(`history-movie-slide${i+1}-title`).innerHTML =
-        `${myArray[i].title}`;
-
         document.getElementById(`history-movie-slide${i+1}-img`).src =
         `${myArray[i].image_url}`;
 
@@ -598,9 +589,6 @@ function fillDataMifune(myArray)
 {
     for (let i = 0; i < 7; i++)
     {
-
-        document.getElementById(`mifune-movie-slide${i+1}-title`).innerHTML =
-        `${myArray[i].title}`;
 
         document.getElementById(`mifune-movie-slide${i+1}-img`).src =
         `${myArray[i].image_url}`;

@@ -29,7 +29,56 @@ nav ul
 {
     list-style-type: none;
 }
-nav ul link{}
+nav ul li
+{
+    float: left;
+    width: 25%;
+    text-align: center;
+}
+nav ul::after
+{
+    content: "";
+    display: table;
+    clear: both;
+}
+nav a
+{
+    display: block;
+    text-decoration: none;
+    color: black;
+    border-bottom: 2px solid transparent;
+    padding: 10px 0px;
+}
+nav a::hover
+{
+    color: orange;
+    border-bottom: 2px solid gold;
+}
+.menu-nav-sub
+{
+    display: none;
+    box-shadow: 0px 1px 2px #CCC;
+}
+.menu-nav-sub li
+{
+    float: none;
+    width: 100%;
+    text-align: left;
+}
+.menu-nav-sub a
+{
+    padding: 10px;
+    border-bottom: none;
+}
+.menu-nav-sub a::hover
+{
+    border-bottom: none;
+}
+.menu-nav
+{
+    content: "▼";
+    font-size: 12px;
+}
 
 
 .menu-nav
@@ -89,11 +138,16 @@ div#slide figure img
 {
     max_height: 192px;
 	max_width: 268px;
-	position: relative;
 	margin: auto;
 }
 
 .slide
 {
-    }
+
+}
+
+
+.carousel{
+    display: flex;
+}
 
