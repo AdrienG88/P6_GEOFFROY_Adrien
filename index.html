@@ -1,79 +1,644 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <link rel="stylesheet" href="style.css">
-  <title>Bienvenue sur Just Stream It!</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+    <title>Bienvenue sur Just Stream It!</title>
 </head>
 
 <body style="font-family: Helvetica; background-color: #0c3c4d;">
-
 <script src="script.js" defer></script>
 
     <header>
-    <div class="flex-container">
-      <div id="menu-logo"><img src="stream-it_mini.png" alt="Logo de Stream It"/></div>
-      <div id="menu-nav-accueil" class="menu-nav"><a class="menu-nav-link" href=#flex-container>Accueil</a></div>
-      <div id="menu-nav-cat" class="menu-nav"><a class="menu-nav-link" href=#best-rated-carousel>Catégories</a></div>
+    <nav class="flex-container">
+        <ul>
+            <li id="menu-logo">
+                <img src="stream-it_mini.png" alt="Logo de Stream It"/>
+            </li>
+            <li id="menu-nav-accueil" class="menu-nav">
+                <a class="menu-nav-link" href=#flex-container>Go on top</a>
+            </li>
+            <li id="menu-nav-cat" class="menu-nav">
+                <ul class="menu-nav-sub">
+                    <li><a href="">Categories</a></li>
+                    <li><a href="#best-rated-carousel">Best movies</a></li>
+                    <li><a href="#carpenter-carousel">John Carpenter</a></li>
+                    <li><a href="#history-carousel">Historical movies</a></li>
+                    <li><a href="#mifune-carousel">Starring Tôshiro Mifune</a></li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+    </header>
+
+
+    <div class ="top movie">
+        <h2>Best-rated movie</h2>
+        <div id="top-movie-info">
+                <div id="best-rated-movie-slide1" class="slide">
+                    <div id="best-rated-movie-slide1-info">
+                        <img id="best-rated-movie-slide1-img">
+                        <div role=dialog" aria-modal="true" aria-labelledby="modal-heading" id="best-rated-movie-slide1-modal">
+                            <button>Close</button>
+                            <h1 id="best-rated-movie-slide1-modal-heading"></h1>
+                            <div id="best-rated-movie-slide1-modal-genre">Genre:<span id="modal-genre"></span></div>
+                            <div id="best-rated-movie-slide1-modal-releasedate">Year:</div>
+                            <div id="best-rated-movie-slide1-modal-votes">Votes:</div>
+                            <div id="best-rated-movie-slide1-modal-imdbscore">IMDb Score:</div>
+                            <div id="best-rated-movie-slide1-modal-directors">Directors:</div>
+                            <div id="best-rated-movie-slide1-modal-actors">Actors:</div>
+                            <div id="best-rated-movie-slide1-modal-duration">Duration:</div>
+                            <div id="best-rated-movie-slide1-modal-country">Country:</div>
+                            <div id="best-rated-movie-slide1-modal-boxoffice">Box-Office:</div>
+                            <div id="best-rated-movie-slide1-modal-summary">Summary:</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-  </header>
 
     <div class="carousels" style="margin-top: 200px;">
-        <div id="best-rated-carousel" tabindex="0" class="carousel">
-            <h2>Best-rated movies</h2>
+        <div class="carousel-container" id="best-rated-carousel" tabindex="0">
+            <h2>Other best-rated movies</h2>
 
-            <ul>
-                <li id="best-rated-movie-slide1" class="slide">
-                    <div id="best-rated-movie-slide1-info">
-                        <h3 id="best-rated-movie-slide1-title"></h3>
-                        <img id="best-rated-movie-slide1-img">
-                        <div id="best-rated-movie-slide1-description"></div>
-                        
+            <div class="carousel">
+                <div id="best-rated-movie-slide2" class="slide">
+                    <div id="best-rated-movie-slide2-info">
+                        <img id="best-rated-movie-slide2-img">
+                        <div role=dialog" aria-modal="true" aria-labelledby="modal-heading" id="best-rated-movie-slide2-modal">
+                            <button>Close</button>
+                            <h1 id="best-rated-movie-slide2-modal-heading"></h1>
+                            <div id="best-rated-movie-slide2-modal-genre">Genre:</div>
+                            <div id="best-rated-movie-slide2-modal-releasedate">Year:</div>
+                            <div id="best-rated-movie-slide2-modal-votes">Votes:</div>
+                            <div id="best-rated-movie-slide2-modal-imdbscore">IMDb Score:</div>
+                            <div id="best-rated-movie-slide2-modal-directors">Directors:</div>
+                            <div id="best-rated-movie-slide2-modal-actors">Actors:</div>
+                            <div id="best-rated-movie-slide2-modal-duration">Duration:</div>
+                            <div id="best-rated-movie-slide2-modal-country">Country:</div>
+                            <div id="best-rated-movie-slide2-modal-boxoffice">Box-Office:</div>
+                            <div id="best-rated-movie-slide2-modal-summary">Summary:</div>
+                        </div>
                     </div>
-                    <div class="carousel-snapper"></div>
-                        <a href="#best-rated-movie-slide7" class="carousel-previous">Go to last slide</a>
-                        <a href="#best-rated-movie-slide2" class="carousel-next">Go to next slide</a>
-                </li>
-                
-                <li id="best-rated-movie-slide2" class="slide">
-                    <div class="carousel-snapper"></div>
-                        <a href="#best-rated-movie-slide1" class="carousel-previous">Go to previous slide</a>
-                        <a href="#best-rated-movie-slide3" class="carousel-next">Go to next slide</a>
-                </li>
+                </div>
 
-                <li id="best-rated-movie-slide3" class="slide">
-                    <div class="carousel-snapper"></div>
-                        <a href="#best-rated-movie-slide2" class="carousel-previous">Go to previous slide</a>
-                        <a href="#best-rated-movie-slide4" class="carousel-next">Go to next slide</a>
-                </li>
+                <div id="best-rated-movie-slide3" class="slide">
+                    <div id="best-rated-movie-slide3-info">
+                        <img id="best-rated-movie-slide3-img">
+                        <div role=dialog" aria-modal="true" aria-labelledby="modal-heading" id="best-rated-movie-slide3-modal">
+                            <button>Close</button>
+                            <h1 id="best-rated-movie-slide3-modal-heading"></h1>
+                            <div id="best-rated-movie-slide3-modal-genre">Genre:</div>
+                            <div id="best-rated-movie-slide3-modal-releasedate">Year:</div>
+                            <div id="best-rated-movie-slide3-modal-votes">Votes:</div>
+                            <div id="best-rated-movie-slide3-modal-imdbscore">IMDb Score:</div>
+                            <div id="best-rated-movie-slide3-modal-directors">Directors:</div>
+                            <div id="best-rated-movie-slide3-modal-actors">Actors:</div>
+                            <div id="best-rated-movie-slide3-modal-duration">Duration:</div>
+                            <div id="best-rated-movie-slide3-modal-country">Country:</div>
+                            <div id="best-rated-movie-slide3-modal-boxoffice">Box-Office:</div>
+                            <div id="best-rated-movie-slide3-modal-summary">Summary:</div>
+                        </div>
 
-                <li id="best-rated-movie-slide4" class="slide">
-                    <div class="carousel-snapper"></div>
-                        <a href="#best-rated-movie-slide3" class="carousel-previous">Go to previous slide</a>
-                        <a href="#best-rated-movie-slide5" class="carousel-next">Go to next slide</a>
-                </li>
+                    </div>
+                </div>
 
-                <li id="best-rated-movie-slide5" class="slide">
-                    <div class="carousel-snapper"></div>
-                        <a href="#best-rated-movie-slide4" class="carousel-previous">Go to previous slide</a>
-                        <a href="#best-rated-movie-slide6" class="carousel-next">Go to next slide</a>
-                </li>
+                <div id="best-rated-movie-slide4" class="slide">
+                    <div id="best-rated-movie-slide4-info">
+                        <img id="best-rated-movie-slide4-img">
+                        <div role=dialog" aria-modal="true" aria-labelledby="modal-heading" id="best-rated-movie-slide4-modal">
+                            <button>Close</button>
+                            <h1 id="best-rated-movie-slide4-modal-heading"></h1>
+                            <div id="best-rated-movie-slide4-modal-genre">Genre:</div>
+                            <div id="best-rated-movie-slide4-modal-releasedate">Year:</div>
+                            <div id="best-rated-movie-slide4-modal-votes">Votes:</div>
+                            <div id="best-rated-movie-slide4-modal-imdbscore">IMDb Score:</div>
+                            <div id="best-rated-movie-slide4-modal-directors">Directors:</div>
+                            <div id="best-rated-movie-slide4-modal-actors">Actors:</div>
+                            <div id="best-rated-movie-slide4-modal-duration">Duration:</div>
+                            <div id="best-rated-movie-slide4-modal-country">Country:</div>
+                            <div id="best-rated-movie-slide4-modal-boxoffice">Box-Office:</div>
+                            <div id="best-rated-movie-slide4-modal-summary">Summary:</div>
+                        </div>
 
-                <li id="best-rated-movie-slide6" class="slide">
-                    <div class="carousel-snapper"></div>
-                        <a href="#best-rated-movie-slide5" class="carousel-previous">Go to previous slide</a>
-                        <a href="#best-rated-movie-slide7" class="carousel-next">Go to next slide</a>
-                </li>
-                <li id="best-rated-movie-slide7" class="slide">
-                    <div class="carousel-snapper"></div>
-                        <a href="#best-rated-movie-slide6" class="carousel-previous">Go to previous slide</a>
-                        <a href="#best-rated-movie-slide1" class="carousel-next">Go to first slide</a>
-                </li>
+                    </div>
+                </div>
 
-            </ul>
- 
+                <div id="best-rated-movie-slide5" class="slide">
+                    <div id="best-rated-movie-slide5-info">
+                        <img id="best-rated-movie-slide5-img">
+                        <div role=dialog" aria-modal="true" aria-labelledby="modal-heading" id="best-rated-movie-slide5-modal">
+                            <button>Close</button>
+                            <h1 id="best-rated-movie-slide5-modal-heading"></h1>
+                            <div id="best-rated-movie-slide5-modal-genre">Genre:</div>
+                            <div id="best-rated-movie-slide5-modal-releasedate">Year:</div>
+                            <div id="best-rated-movie-slide5-modal-votes">Votes:</div>
+                            <div id="best-rated-movie-slide5-modal-imdbscore">IMDb Score:</div>
+                            <div id="best-rated-movie-slide5-modal-directors">Directors:</div>
+                            <div id="best-rated-movie-slide5-modal-actors">Actors:</div>
+                            <div id="best-rated-movie-slide5-modal-duration">Duration:</div>
+                            <div id="best-rated-movie-slide5-modal-country">Country:</div>
+                            <div id="best-rated-movie-slide5-modal-boxoffice">Box-Office:</div>
+                            <div id="best-rated-movie-slide5-modal-summary">Summary:</div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div id="best-rated-movie-slide6" class="slide">
+                    <div id="best-rated-movie-slide6-info">
+                        <img id="best-rated-movie-slide6-img">
+                        <div role=dialog" aria-modal="true" aria-labelledby="modal-heading" id="best-rated-movie-slide6-modal">
+                            <button>Close</button>
+                            <h1 id="best-rated-movie-slide6-modal-heading"></h1>
+                            <div id="best-rated-movie-slide6-modal-genre">Genre:</div>
+                            <div id="best-rated-movie-slide6-modal-releasedate">Year:</div>
+                            <div id="best-rated-movie-slide6-modal-votes">Votes:</div>
+                            <div id="best-rated-movie-slide6-modal-imdbscore">IMDb Score:</div>
+                            <div id="best-rated-movie-slide6-modal-directors">Directors:</div>
+                            <div id="best-rated-movie-slide6-modal-actors">Actors:</div>
+                            <div id="best-rated-movie-slide6-modal-duration">Duration:</div>
+                            <div id="best-rated-movie-slide6-modal-country">Country:</div>
+                            <div id="best-rated-movie-slide6-modal-boxoffice">Box-Office:</div>
+                            <div id="best-rated-movie-slide6-modal-summary">Summary:</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="best-rated-movie-slide7" class="slide">
+                    <div id="best-rated-movie-slide7-info">
+                        <img id="best-rated-movie-slide7-img">
+                        <div role=dialog" aria-modal="true" aria-labelledby="modal-heading" id="best-rated-movie-slide7-modal">
+                            <button>Close</button>
+                            <h1 id="best-rated-movie-slide7-modal-heading"></h1>
+                            <div id="best-rated-movie-slide7-modal-genre">Genre:</div>
+                            <div id="best-rated-movie-slide7-modal-releasedate">Year:</div>
+                            <div id="best-rated-movie-slide7-modal-votes">Votes:</div>
+                            <div id="best-rated-movie-slide7-modal-imdbscore">IMDb Score:</div>
+                            <div id="best-rated-movie-slide7-modal-directors">Directors:</div>
+                            <div id="best-rated-movie-slide7-modal-actors">Actors:</div>
+                            <div id="best-rated-movie-slide7-modal-duration">Duration:</div>
+                            <div id="best-rated-movie-slide7-modal-country">Country:</div>
+                            <div id="best-rated-movie-slide7-modal-boxoffice">Box-Office:</div>
+                            <div id="best-rated-movie-slide7-modal-summary">Summary:</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div id="best-movie"></div>
+    </div>
+
+    <div class="carousels" style="margin-top: 200px;">
+        <div class="carousel-container" id="carpenter-carousel" tabindex="0">
+            <h2>John Carpenter movies</h2>
+
+            <div class="carousel">
+                <div id="carpenter-movie-slide1" class="slide">
+                    <div id="carpenter-movie-slide1-info">
+                        <img id="carpenter-movie-slide1-img">
+                        <div role=dialog" aria-modal="true" aria-labelledby="modal-heading" id="carpenter-movie-slide1-modal">
+                            <button>Close</button>
+                            <h1 id="carpenter-movie-slide1-modal-heading"></h1>
+                            <div id="carpenter-movie-slide1-modal-genre">Genre:</div>
+                            <div id="carpenter-movie-slide1-modal-releasedate">Year:</div>
+                            <div id="carpenter-movie-slide1-modal-votes">Votes:</div>
+                            <div id="carpenter-movie-slide1-modal-imdbscore">IMDb Score:</div>
+                            <div id="carpenter-movie-slide1-modal-directors">Directors:</div>
+                            <div id="carpenter-movie-slide1-modal-actors">Actors:</div>
+                            <div id="carpenter-movie-slide1-modal-duration">Duration:</div>
+                            <div id="carpenter-movie-slide1-modal-country">Country:</div>
+                            <div id="carpenter-movie-slide1-modal-boxoffice">Box-Office:</div>
+                            <div id="carpenter-movie-slide1-modal-summary">Summary:</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="carpenter-movie-slide2" class="slide">
+                    <div id="carpenter-movie-slide2-info">
+                        <img id="carpenter-movie-slide2-img">
+                        <div role=dialog" aria-modal="true" aria-labelledby="modal-heading" id="carpenter-movie-slide2-modal">
+                            <button>Close</button>
+                            <h1 id="carpenter-movie-slide2-modal-heading"></h1>
+                            <div id="carpenter-movie-slide2-modal-genre">Genre:</div>
+                            <div id="carpenter-movie-slide2-modal-releasedate">Year:</div>
+                            <div id="carpenter-movie-slide2-modal-votes">Votes:</div>
+                            <div id="carpenter-movie-slide2-modal-imdbscore">IMDb Score:</div>
+                            <div id="carpenter-movie-slide2-modal-directors">Directors:</div>
+                            <div id="carpenter-movie-slide2-modal-actors">Actors:</div>
+                            <div id="carpenter-movie-slide2-modal-duration">Duration:</div>
+                            <div id="carpenter-movie-slide2-modal-country">Country:</div>
+                            <div id="carpenter-movie-slide2-modal-boxoffice">Box-Office:</div>
+                            <div id="carpenter-movie-slide2-modal-summary">Summary:</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="carpenter-movie-slide3" class="slide">
+                    <div id="carpenter-movie-slide3-info">
+                        <img id="carpenter-movie-slide3-img">
+                        <div role=dialog" aria-modal="true" aria-labelledby="modal-heading" id="carpenter-movie-slide3-modal">
+                            <button>Close</button>
+                            <h1 id="carpenter-movie-slide3-modal-heading"></h1>
+                            <div id="carpenter-movie-slide3-modal-genre">Genre:</div>
+                            <div id="carpenter-movie-slide3-modal-releasedate">Year:</div>
+                            <div id="carpenter-movie-slide3-modal-votes">Votes:</div>
+                            <div id="carpenter-movie-slide3-modal-imdbscore">IMDb Score:</div>
+                            <div id="carpenter-movie-slide3-modal-directors">Directors:</div>
+                            <div id="carpenter-movie-slide3-modal-actors">Actors:</div>
+                            <div id="carpenter-movie-slide3-modal-duration">Duration:</div>
+                            <div id="carpenter-movie-slide3-modal-country">Country:</div>
+                            <div id="carpenter-movie-slide3-modal-boxoffice">Box-Office:</div>
+                            <div id="carpenter-movie-slide3-modal-summary">Summary:</div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div id="carpenter-movie-slide4" class="slide">
+                    <div id="carpenter-movie-slide4-info">
+                        <img id="carpenter-movie-slide4-img">
+                        <div role=dialog" aria-modal="true" aria-labelledby="modal-heading" id="carpenter-movie-slide4-modal">
+                            <button>Close</button>
+                            <h1 id="carpenter-movie-slide4-modal-heading"></h1>
+                            <div id="carpenter-movie-slide4-modal-genre">Genre:</div>
+                            <div id="carpenter-movie-slide4-modal-releasedate">Year:</div>
+                            <div id="carpenter-movie-slide4-modal-votes">Votes:</div>
+                            <div id="carpenter-movie-slide4-modal-imdbscore">IMDb Score:</div>
+                            <div id="carpenter-movie-slide4-modal-directors">Directors:</div>
+                            <div id="carpenter-movie-slide4-modal-actors">Actors:</div>
+                            <div id="carpenter-movie-slide4-modal-duration">Duration:</div>
+                            <div id="carpenter-movie-slide4-modal-country">Country:</div>
+                            <div id="carpenter-movie-slide4-modal-boxoffice">Box-Office:</div>
+                            <div id="carpenter-movie-slide4-modal-summary">Summary:</div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div id="carpenter-movie-slide5" class="slide">
+                    <div id="carpenter-movie-slide5-info">
+                        <img id="carpenter-movie-slide5-img">
+                        <div role=dialog" aria-modal="true" aria-labelledby="modal-heading" id="carpenter-movie-slide5-modal">
+                            <button>Close</button>
+                            <h1 id="carpenter-movie-slide5-modal-heading"></h1>
+                            <div id="carpenter-movie-slide5-modal-genre">Genre:</div>
+                            <div id="carpenter-movie-slide5-modal-releasedate">Year:</div>
+                            <div id="carpenter-movie-slide5-modal-votes">Votes:</div>
+                            <div id="carpenter-movie-slide5-modal-imdbscore">IMDb Score:</div>
+                            <div id="carpenter-movie-slide5-modal-directors">Directors:</div>
+                            <div id="carpenter-movie-slide5-modal-actors">Actors:</div>
+                            <div id="carpenter-movie-slide5-modal-duration">Duration:</div>
+                            <div id="carpenter-movie-slide5-modal-country">Country:</div>
+                            <div id="carpenter-movie-slide5-modal-boxoffice">Box-Office:</div>
+                            <div id="carpenter-movie-slide5-modal-summary">Summary:</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="carpenter-movie-slide6" class="slide">
+                    <div id="carpenter-movie-slide6-info">
+                        <img id="carpenter-movie-slide6-img">
+                        <div role=dialog" aria-modal="true" aria-labelledby="modal-heading" id="carpenter-movie-slide6-modal">
+                            <button>Close</button>
+                            <h1 id="carpenter-movie-slide6-modal-heading"></h1>
+                            <div id="carpenter-movie-slide6-modal-genre">Genre:</div>
+                            <div id="carpenter-movie-slide6-modal-releasedate">Year:</div>
+                            <div id="carpenter-movie-slide6-modal-votes">Votes:</div>
+                            <div id="carpenter-movie-slide6-modal-imdbscore">IMDb Score:</div>
+                            <div id="carpenter-movie-slide6-modal-directors">Directors:</div>
+                            <div id="carpenter-movie-slide6-modal-actors">Actors:</div>
+                            <div id="carpenter-movie-slide6-modal-duration">Duration:</div>
+                            <div id="carpenter-movie-slide6-modal-country">Country:</div>
+                            <div id="carpenter-movie-slide6-modal-boxoffice">Box-Office:</div>
+                            <div id="carpenter-movie-slide6-modal-summary">Summary:</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="carpenter-movie-slide7" class="slide">
+                    <div id="carpenter-movie-slide7-info">
+                        <img id="carpenter-movie-slide7-img">
+                        <div role=dialog" aria-modal="true" aria-labelledby="modal-heading" id="carpenter-movie-slide7-modal">
+                            <button>Close</button>
+                            <h1 id="carpenter-movie-slide7-modal-heading"></h1>
+                            <div id="carpenter-movie-slide7-modal-genre">Genre:</div>
+                            <div id="carpenter-movie-slide7-modal-releasedate">Year:</div>
+                            <div id="carpenter-movie-slide7-modal-votes">Votes:</div>
+                            <div id="carpenter-movie-slide7-modal-imdbscore">IMDb Score:</div>
+                            <div id="carpenter-movie-slide7-modal-directors">Directors:</div>
+                            <div id="carpenter-movie-slide7-modal-actors">Actors:</div>
+                            <div id="carpenter-movie-slide7-modal-duration">Duration:</div>
+                            <div id="carpenter-movie-slide7-modal-country">Country:</div>
+                            <div id="carpenter-movie-slide7-modal-boxoffice">Box-Office:</div>
+                            <div id="carpenter-movie-slide7-modal-summary">Summary:</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="carousels" style="margin-top: 200px;">
+        <div class="carousel-container" id="history-carousel" tabindex="0">
+            <h2>Historical movies</h2>
+            <div class="carousel">
+                <div id="history-movie-slide1" class="slide">
+                    <div id="history-movie-slide1-info">
+                        <img id="history-movie-slide1-img">
+                        <div role=dialog" aria-modal="true" aria-labelledby="modal-heading" id="history-movie-slide1-modal">
+                            <button>Close</button>
+                            <h1 id="history-movie-slide1-modal-heading"></h1>
+                            <div id="history-movie-slide1-modal-genre">Genre:</div>
+                            <div id="history-movie-slide1-modal-releasedate">Year:</div>
+                            <div id="history-movie-slide1-modal-votes">Votes:</div>
+                            <div id="history-movie-slide1-modal-imdbscore">IMDb Score:</div>
+                            <div id="history-movie-slide1-modal-directors">Directors:</div>
+                            <div id="history-movie-slide1-modal-actors">Actors:</div>
+                            <div id="history-movie-slide1-modal-duration">Duration:</div>
+                            <div id="history-movie-slide1-modal-country">Country:</div>
+                            <div id="history-movie-slide1-modal-boxoffice">Box-Office:</div>
+                            <div id="history-movie-slide1-modal-summary">Summary:</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="history-movie-slide2" class="slide">
+                    <div id="history-movie-slide2-info">
+                        <img id="history-movie-slide2-img">
+                        <div role=dialog" aria-modal="true" aria-labelledby="modal-heading" id="history-movie-slide2-modal">
+                            <button>Close</button>
+                            <h1 id="history-movie-slide2-modal-heading"></h1>
+                            <div id="history-movie-slide2-modal-genre">Genre:</div>
+                            <div id="history-movie-slide2-modal-releasedate">Year:</div>
+                            <div id="history-movie-slide2-modal-votes">Votes:</div>
+                            <div id="history-movie-slide2-modal-imdbscore">IMDb Score:</div>
+                            <div id="history-movie-slide2-modal-directors">Directors:</div>
+                            <div id="history-movie-slide2-modal-actors">Actors:</div>
+                            <div id="history-movie-slide2-modal-duration">Duration:</div>
+                            <div id="history-movie-slide2-modal-country">Country:</div>
+                            <div id="history-movie-slide2-modal-boxoffice">Box-Office:</div>
+                            <div id="history-movie-slide2-modal-summary">Summary:</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="history-movie-slide3" class="slide">
+                    <div id="history-movie-slide3-info">
+                        <img id="history-movie-slide3-img">
+                        <div role=dialog" aria-modal="true" aria-labelledby="modal-heading" id="history-movie-slide3-modal">
+                            <button>Close</button>
+                            <h1 id="history-movie-slide3-modal-heading"></h1>
+                            <div id="history-movie-slide3-modal-genre">Genre:</div>
+                            <div id="history-movie-slide3-modal-releasedate">Year:</div>
+                            <div id="history-movie-slide3-modal-votes">Votes:</div>
+                            <div id="history-movie-slide3-modal-imdbscore">IMDb Score:</div>
+                            <div id="history-movie-slide3-modal-directors">Directors:</div>
+                            <div id="history-movie-slide3-modal-actors">Actors:</div>
+                            <div id="history-movie-slide3-modal-duration">Duration:</div>
+                            <div id="history-movie-slide3-modal-country">Country:</div>
+                            <div id="history-movie-slide3-modal-boxoffice">Box-Office:</div>
+                            <div id="history-movie-slide3-modal-summary">Summary:</div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div id="history-movie-slide4" class="slide">
+                    <div id="history-movie-slide4-info">
+                        <img id="history-movie-slide4-img">
+                        <div role=dialog" aria-modal="true" aria-labelledby="modal-heading" id="history-movie-slide4-modal">
+                            <button>Close</button>
+                            <h1 id="history-movie-slide4-modal-heading"></h1>
+                            <div id="history-movie-slide4-modal-genre">Genre:</div>
+                            <div id="history-movie-slide4-modal-releasedate">Year:</div>
+                            <div id="history-movie-slide4-modal-votes">Votes:</div>
+                            <div id="history-movie-slide4-modal-imdbscore">IMDb Score:</div>
+                            <div id="history-movie-slide4-modal-directors">Directors:</div>
+                            <div id="history-movie-slide4-modal-actors">Actors:</div>
+                            <div id="history-movie-slide4-modal-duration">Duration:</div>
+                            <div id="history-movie-slide4-modal-country">Country:</div>
+                            <div id="history-movie-slide4-modal-boxoffice">Box-Office:</div>
+                            <div id="history-movie-slide4-modal-summary">Summary:</div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div id="history-movie-slide5" class="slide">
+                    <div id="history-movie-slide5-info">
+                        <img id="history-movie-slide5-img">
+                        <div role=dialog" aria-modal="true" aria-labelledby="modal-heading" id="history-movie-slide5-modal">
+                            <button>Close</button>
+                            <h1 id="history-movie-slide5-modal-heading"></h1>
+                            <div id="history-movie-slide5-modal-genre">Genre:</div>
+                            <div id="history-movie-slide5-modal-releasedate">Year:</div>
+                            <div id="history-movie-slide5-modal-votes">Votes:</div>
+                            <div id="history-movie-slide5-modal-imdbscore">IMDb Score:</div>
+                            <div id="history-movie-slide5-modal-directors">Directors:</div>
+                            <div id="history-movie-slide5-modal-actors">Actors:</div>
+                            <div id="history-movie-slide5-modal-duration">Duration:</div>
+                            <div id="history-movie-slide5-modal-country">Country:</div>
+                            <div id="history-movie-slide5-modal-boxoffice">Box-Office:</div>
+                            <div id="history-movie-slide5-modal-summary">Summary:</div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div id="history-movie-slide6" class="slide">
+                    <div id="history-movie-slide6-info">
+                        <img id="history-movie-slide6-img">
+                        <div role=dialog" aria-modal="true" aria-labelledby="modal-heading" id="history-movie-slide6-modal">
+                            <button>Close</button>
+                            <h1 id="history-movie-slide6-modal-heading"></h1>
+                            <div id="history-movie-slide6-modal-genre">Genre:</div>
+                            <div id="history-movie-slide6-modal-releasedate">Year:</div>
+                            <div id="history-movie-slide6-modal-votes">Votes:</div>
+                            <div id="history-movie-slide6-modal-imdbscore">IMDb Score:</div>
+                            <div id="history-movie-slide6-modal-directors">Directors:</div>
+                            <div id="history-movie-slide6-modal-actors">Actors:</div>
+                            <div id="history-movie-slide6-modal-duration">Duration:</div>
+                            <div id="history-movie-slide6-modal-country">Country:</div>
+                            <div id="history-movie-slide6-modal-boxoffice">Box-Office:</div>
+                            <div id="history-movie-slide6-modal-summary">Summary:</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="history-movie-slide7" class="slide">
+                    <div id="history-movie-slide7-info">
+                        <img id="history-movie-slide7-img">
+                        <div role=dialog" aria-modal="true" aria-labelledby="modal-heading" id="history-movie-slide7-modal">
+                            <button>Close</button>
+                            <h1 id="history-movie-slide7-modal-heading"></h1>
+                            <div id="history-movie-slide7-modal-genre">Genre:</div>
+                            <div id="history-movie-slide7-modal-releasedate">Year:</div>
+                            <div id="history-movie-slide7-modal-votes">Votes:</div>
+                            <div id="history-movie-slide7-modal-imdbscore">IMDb Score:</div>
+                            <div id="history-movie-slide7-modal-directors">Directors:</div>
+                            <div id="history-movie-slide7-modal-actors">Actors:</div>
+                            <div id="history-movie-slide7-modal-duration">Duration:</div>
+                            <div id="history-movie-slide7-modal-country">Country:</div>
+                            <div id="history-movie-slide7-modal-boxoffice">Box-Office:</div>
+                            <div id="history-movie-slide7-modal-summary">Summary:</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="carousels" style="margin-top: 200px;">
+        <div class="carousel-container" id="mifune-carousel" tabindex="0" >
+            <h2>Mifune Tôshiro popular movies</h2>
+
+            <div class="carousel">
+                <div id="mifune-movie-slide1" class="slide">
+                    <div id="mifune-movie-slide1-info">
+                        <img id="mifune-movie-slide1-img">
+                        <div role=dialog" aria-modal="true" aria-labelledby="modal-heading" id="mifune-movie-slide1-modal">
+                            <button>Close</button>
+                            <h1 id="mifune-movie-slide1-modal-heading"></h1>
+                            <div id="mifune-movie-slide1-modal-genre">Genre:</div>
+                            <div id="mifune-movie-slide1-modal-releasedate">Year:</div>
+                            <div id="mifune-movie-slide1-modal-votes">Votes:</div>
+                            <div id="mifune-movie-slide1-modal-imdbscore">IMDb Score:</div>
+                            <div id="mifune-movie-slide1-modal-directors">Directors:</div>
+                            <div id="mifune-movie-slide1-modal-actors">Actors:</div>
+                            <div id="mifune-movie-slide1-modal-duration">Duration:</div>
+                            <div id="mifune-movie-slide1-modal-country">Country:</div>
+                            <div id="mifune-movie-slide1-modal-boxoffice">Box-Office:</div>
+                            <div id="mifune-movie-slide1-modal-summary">Summary:</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="mifune-movie-slide2" class="slide">
+                    <div id="mifune-movie-slide2-info">
+                        <img id="mifune-movie-slide2-img">
+                        <div role=dialog" aria-modal="true" aria-labelledby="modal-heading" id="mifune-movie-slide2-modal">
+                            <button>Close</button>
+                            <h1 id="mifune-movie-slide2-modal-heading"></h1>
+                            <div id="mifune-movie-slide2-modal-genre">Genre:</div>
+                            <div id="mifune-movie-slide2-modal-releasedate">Year:</div>
+                            <div id="mifune-movie-slide2-modal-votes">Votes:</div>
+                            <div id="mifune-movie-slide2-modal-imdbscore">IMDb Score:</div>
+                            <div id="mifune-movie-slide2-modal-directors">Directors:</div>
+                            <div id="mifune-movie-slide2-modal-actors">Actors:</div>
+                            <div id="mifune-movie-slide2-modal-duration">Duration:</div>
+                            <div id="mifune-movie-slide2-modal-country">Country:</div>
+                            <div id="mifune-movie-slide2-modal-boxoffice">Box-Office:</div>
+                            <div id="mifune-movie-slide2-modal-summary">Summary:</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="mifune-movie-slide3" class="slide">
+                    <div id="mifune-movie-slide3-info">
+                        <img id="mifune-movie-slide3-img">
+                        <div role=dialog" aria-modal="true" aria-labelledby="modal-heading" id="mifune-movie-slide3-modal">
+                            <button>Close</button>
+                            <h1 id="mifune-movie-slide3-modal-heading"></h1>
+                            <div id="mifune-movie-slide3-modal-genre">Genre:</div>
+                            <div id="mifune-movie-slide3-modal-releasedate">Year:</div>
+                            <div id="mifune-movie-slide3-modal-votes">Votes:</div>
+                            <div id="mifune-movie-slide3-modal-imdbscore">IMDb Score:</div>
+                            <div id="mifune-movie-slide3-modal-directors">Directors:</div>
+                            <div id="mifune-movie-slide3-modal-actors">Actors:</div>
+                            <div id="mifune-movie-slide3-modal-duration">Duration:</div>
+                            <div id="mifune-movie-slide3-modal-country">Country:</div>
+                            <div id="mifune-movie-slide3-modal-boxoffice">Box-Office:</div>
+                            <div id="mifune-movie-slide3-modal-summary">Summary:</div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div id="mifune-movie-slide4" class="slide">
+                    <div id="mifune-movie-slide4-info">
+                        <img id="mifune-movie-slide4-img">
+                        <div role=dialog" aria-modal="true" aria-labelledby="modal-heading" id="mifune-movie-slide4-modal">
+                            <button>Close</button>
+                            <h1 id="mifune-movie-slide4-modal-heading"></h1>
+                            <div id="mifune-movie-slide4-modal-genre">Genre:</div>
+                            <div id="mifune-movie-slide4-modal-releasedate">Year:</div>
+                            <div id="mifune-movie-slide4-modal-votes">Votes:</div>
+                            <div id="mifune-movie-slide4-modal-imdbscore">IMDb Score:</div>
+                            <div id="mifune-movie-slide4-modal-directors">Directors:</div>
+                            <div id="mifune-movie-slide4-modal-actors">Actors:</div>
+                            <div id="mifune-movie-slide4-modal-duration">Duration:</div>
+                            <div id="mifune-movie-slide4-modal-country">Country:</div>
+                            <div id="mifune-movie-slide4-modal-boxoffice">Box-Office:</div>
+                            <div id="mifune-movie-slide4-modal-summary">Summary:</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="mifune-movie-slide5" class="slide">
+                    <div id="mifune-movie-slide5-info">
+                        <img id="mifune-movie-slide5-img">
+                        <div role=dialog" aria-modal="true" aria-labelledby="modal-heading" id="mifune-movie-slide5-modal">
+                            <button>Close</button>
+                            <h1 id="mifune-movie-slide5-modal-heading"></h1>
+                            <div id="mifune-movie-slide5-modal-genre">Genre:</div>
+                            <div id="mifune-movie-slide5-modal-releasedate">Year:</div>
+                            <div id="mifune-movie-slide5-modal-votes">Votes:</div>
+                            <div id="mifune-movie-slide5-modal-imdbscore">IMDb Score:</div>
+                            <div id="mifune-movie-slide5-modal-directors">Directors:</div>
+                            <div id="mifune-movie-slide5-modal-actors">Actors:</div>
+                            <div id="mifune-movie-slide5-modal-duration">Duration:</div>
+                            <div id="mifune-movie-slide5-modal-country">Country:</div>
+                            <div id="mifune-movie-slide5-modal-boxoffice">Box-Office:</div>
+                            <div id="mifune-movie-slide5-modal-summary">Summary:</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="mifune-movie-slide6" class="slide">
+                    <div id="mifune-movie-slide6-info">
+                        <img id="mifune-movie-slide6-img">
+                        <div role=dialog" aria-modal="true" aria-labelledby="modal-heading" id="mifune-movie-slide6-modal">
+                            <button>Close</button>
+                            <h1 id="mifune-movie-slide6-modal-heading"></h1>
+                            <div id="mifune-movie-slide6-modal-genre">Genre:</div>
+                            <div id="mifune-movie-slide6-modal-releasedate">Year:</div>
+                            <div id="mifune-movie-slide6-modal-votes">Votes:</div>
+                            <div id="mifune-movie-slide6-modal-imdbscore">IMDb Score:</div>
+                            <div id="mifune-movie-slide6-modal-directors">Directors:</div>
+                            <div id="mifune-movie-slide6-modal-actors">Actors:</div>
+                            <div id="mifune-movie-slide6-modal-duration">Duration:</div>
+                            <div id="mifune-movie-slide6-modal-country">Country:</div>
+                            <div id="mifune-movie-slide6-modal-boxoffice">Box-Office:</div>
+                            <div id="mifune-movie-slide6-modal-summary">Summary:</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="mifune-movie-slide7" class="slide">
+                    <div id="mifune-movie-slide7-info">
+                        <img id="mifune-movie-slide7-img">
+                        <div role=dialog" aria-modal="true" aria-labelledby="modal-heading" id="mifune-movie-slide7-modal">
+                            <button>Close</button>
+                            <h1 id="mifune-movie-slide7-modal-heading"></h1>
+                            <div id="mifune-movie-slide7-modal-genre">Genre:</div>
+                            <div id="mifune-movie-slide7-modal-releasedate">Year:</div>
+                            <div id="mifune-movie-slide7-modal-votes">Votes:</div>
+                            <div id="mifune-movie-slide7-modal-imdbscore">IMDb Score:</div>
+                            <div id="mifune-movie-slide7-modal-directors">Directors:</div>
+                            <div id="mifune-movie-slide7-modal-actors">Actors:</div>
+                            <div id="mifune-movie-slide7-modal-duration">Duration:</div>
+                            <div id="mifune-movie-slide7-modal-country">Country:</div>
+                            <div id="mifune-movie-slide7-modal-boxoffice">Box-Office:</div>
+                            <div id="mifune-movie-slide7-modal-summary">Summary:</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
 </body>
 
 </html>
